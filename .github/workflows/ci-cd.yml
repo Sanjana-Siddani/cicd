@@ -15,7 +15,7 @@ jobs:
       - name: Validate HTML
         run: |
           sudo apt-get install -y tidy
-          tidy -e /index.html || exit 1
+          tidy -e ./index.html || exit 1
       
       - name: Install Deno
         uses: denoland/setup-deno@v1
@@ -23,7 +23,7 @@ jobs:
           deno-version: v1.x
       
       - name: Run Deno Lint
-        run: deno lint /script.js
+        run: deno lint ./script.js
 
   deploy:
     runs-on: ubuntu-latest
